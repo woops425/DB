@@ -177,6 +177,9 @@ where id = 14;
 select *
 from employee;
 
+select *
+from works_on;
+
 -- 프로젝트 ID 2003에 참여한 임직원의 연봉을 두 배로 인상! 
 update employee, works_on
 set salary = salary * 2
@@ -189,5 +192,90 @@ where dept_id = 1003;
 
 -- 회사의 모든 구성원의 연봉을 두 배로 인상!(where 절이 없다는 것이 특징)
 SET SQL_SAFE_UPDATES = 0;  -- 안전 모드 비활성화
-UPDATE employee SET salary = salary * 2;
+
+UPDATE employee 
+SET salary = salary * 2;
+
 SET SQL_SAFE_UPDATES = 1;  -- 안전 모드 다시 활성화
+
+-- JOHN이 퇴사했을 때, employee 테이블에서 JOHN의 정보를 삭제하기 위한 SQL문.
+-- JOHN은 project 2001에 참여하고 있지만, 처음 테이블 설정 시 외래키로 설정하여 CASCADE로 설정했기 때문에 works_on 테이블까지 삭제할 필요 없이 자동 삭제 
+DELETE FROM employee
+WHERE id = 8;
+
+-- JANE이 프로젝트에서 중도하차 -> works_on 테이블에서 JANE의 ID인 empl_id는 2인 것을 삭제 
+DELETE FROM works_on
+where empl_id = 2;
+
+-- DINGYO는 2002 프로젝트에서 빠지고, 2001 프로젝트에만 집중하기로 함. ID는 5
+DELETE FROM works_on
+WHERE empl_id = 5
+and proj_id = 2002;
+
+-- 여러 프로젝트에 참여한 사람의 경우, 매번 이렇게 하나하나 프로젝트를 삭제할 필요 x -> 2001 프로젝트를 제외한 모든 프로젝트에서 제외시키는 코드
+DELETE FROM works_on
+WHERE empl_id = 5
+and proj_id <> 2001; --      <>    ==    != 
+-- and proj_id != 2001;
+
+-- 모든 프로젝트를 삭제할 경우? -> where절이 없으므로, project에 있는 모든 튜플이 삭제됨. where절이 없는 경우는 모든 튜플이 바뀌거나, 삭제되는 경우.
+DELETE FROM project;  
+
+-- ID가 9인 임직원의 이름과 직급을 알고싶을 때, (id = 9라는 조건을 설정하는 것을 selection condition 이라고 함)
+-- 여기서 내가 알고싶은 애트리뷰트는 name, position인데, 이때 얘네를 projection attributes 라고 함  
+select name, position
+from employee
+where id = 9; 
+
+-- project 2002를 리드하는 임직원의 ID, 이름을 알고싶다?
+-- join condition + selection condition 
+select e.id as leader_id, e.name as leader_name, position
+from employee e, project p
+where  e.id = p.leader_id
+and p.id = 2002;
+
+-- 디자이너들이 참여하고있는 프로젝트들의 ID와 이름을 알고싶을 때? DISTNCT : 중복 제거
+select distinct p.id, p.name
+from employee e, works_on w, project p
+where e.id = w.empl_id
+and w.proj_id = p.id
+and e.position = 'DSGN';
+
+
+-- 이름이 N으로 시작하거나, N으로 끝나는 임직원의 이름?
+select name
+from employee
+where name like 'N%' or name like '%N';
+
+-- 이름에 NG가 들어가는 임직원의 이름
+select name
+from employee
+where name like '%NG%';
+
+-- 이름이 J로 시작하는, 총 4글자의 이름을 가지는 임직원들의 이름
+select name
+from employee
+where name like 'J___';
+
+select *
+from employee;
+
+-- %로 시작하거나 _로 끝나는 프로젝트 이름을 찾을 때 : \% | \_.  **-> '\' < escape 문자
+select name
+from project
+where name like '\%%' or name like '%\_';
+ 
+-- *(asterisk) 사용
+-- id가 9인 임직원의 모든 애트리뷰트를 알고싶을 때 
+select *
+from employee
+where id = 9;
+
+select *
+from project p, employee e
+where p.leader_id = e.id
+and p.id = 2002;
+
+-- 모든 임직원의 이름과 생일을 알고싶을 때
+select name, birth_date
+from employee;
