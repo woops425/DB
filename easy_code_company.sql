@@ -279,3 +279,4 @@ and p.id = 2002;
 -- 모든 임직원의 이름과 생일을 알고싶을 때
 select name, birth_date
 from employee;
+
