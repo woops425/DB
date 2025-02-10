@@ -241,7 +241,6 @@ where e.id = w.empl_id
 and w.proj_id = p.id
 and e.position = 'DSGN';
 
-
 -- 이름이 N으로 시작하거나, N으로 끝나는 임직원의 이름?
 select name
 from employee
