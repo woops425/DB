@@ -128,3 +128,4 @@ from works_on w
 where w.proj_id = p.id
 and w.empl_id in(7,12)
 );
+
