@@ -190,4 +190,3 @@ SELECT *
 FROM enrol e
 WHERE e.sno = s.sno
 AND e.cno = c.cno));
-
