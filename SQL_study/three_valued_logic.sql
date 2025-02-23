@@ -17,3 +17,4 @@ where birth_date is not NULL;
 
 -- where절의 condition!! **** where절의 condition의 결과가 TRUE인 tuple만 선택된다
 -- **** 즉, 결과가 FALSE이거나 UNKNOWN이면 그 tuple은 선택되지 않는다!!  
+
