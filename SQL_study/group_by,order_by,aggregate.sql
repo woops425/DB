@@ -90,3 +90,4 @@ group by proj_id having count(*) >= 4) -- group by 다음에 바로 having을 �
 									   -- group by로 묶인 90년대생들의 수가 4 이상인 것에 대해 select 하는 것이므로 잘못된 방식임. 여기서는 sub query를 통해 작성해야 맞는 것!
 group by w.proj_id
 order by w.proj_Id;
+
