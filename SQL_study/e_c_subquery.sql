@@ -216,3 +216,4 @@ from works_on
 where empl_id = 13
 );
 -- v 비교연산자 ALL (subquery) : subquery가 반환한 결과들과 v와의 비교 연산이 모두 TRUE라면 TRUE를 반환함
+
