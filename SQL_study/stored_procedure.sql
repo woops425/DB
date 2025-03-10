@@ -66,3 +66,21 @@ end
 $$
 delimiter ;
 
+call change_nickname(1, 'ZIDANE');
+
+select *
+from users;
+
+select * 
+from nickname_logs;
+
+-- stored procedure : 이외에도 조건문을 통한 분기처리 / 반복문 수행 / 에러 핸들링 / 에러 발생 등의 다양한 로직 정의 가능
+
+-- stored procedure의 장점
+-- application에 transparent 할 수 있다
+-- network traffic을 줄여서 응답 속도를 향상시킬 수 있다
+-- 여러 서비스에서 재사용 가능하다
+
+-- stored procedure의 단점
+-- stored procedure를 쓰게 되면 유지 보수 관리 비용이 커진다
+-- stored procedure은 언제나 transparent인 건 아니다
