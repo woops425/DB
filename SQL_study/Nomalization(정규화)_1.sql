@@ -33,4 +33,3 @@
 
 -- 2NF : 모든 non-prime attribute는 모든 key에 fully functionally dependent 해야 한다
 -- 2NF를 만족시키기 위해, ACCOUNT_CARD 테이블(account_id | card_id)을 따로 만들어줌
-
