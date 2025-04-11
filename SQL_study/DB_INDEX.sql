@@ -44,3 +44,4 @@ INDEX player_name_idx (name),   -- 테이블 생성과 함께 인덱스를 설�
 UNIQUE INDEX team_id_backnumber_idx (team_id, backnumber)
 );
 
+
