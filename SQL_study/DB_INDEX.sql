@@ -43,4 +43,3 @@ backnumber INT,
 INDEX player_name_idx (name),   -- 테이블 생성과 함께 인덱스를 설정 할 땐, 인덱스 이름(여기선 player_name_idx)을 생략해도, SQL에서 자동으로 이름을 생성해줌
 UNIQUE INDEX team_id_backnumber_idx (team_id, backnumber)
 );
-
