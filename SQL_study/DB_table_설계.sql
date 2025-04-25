@@ -47,4 +47,4 @@ natural join department_location;
 -- 3. join 수행 시, 가짜 데이터가 생기지 않도록 설계(PK, FK 잘 활용하는 것이 중요)
 -- 4. 되도록이면 null 값을 줄일 수 있는 방향으로 설계
 
--- ㅁ
+-- 
