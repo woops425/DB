@@ -35,6 +35,7 @@
 -- {empl_id, empl_name} -> {birth_date}라는 FD가 성립할 때, {empl_id}만으로도 {birth_date}가 결정되기 때문에, 
 -- 이 때의 {empl_id} -> {birth_date}라는 FD는 partial FD(부분함수종속)이 성립하는 것이다.
 
+
 -- 4. Full functional dependency(완전함수종속)
 -- X -> Y가 유효할 때, X의 모든 진부분집합이 Y를 결정짓지 못할 때, 이 때 X -> Y를 full FD라고 한다.
 -- {stu_id, class_id} -> {grade}가 성립할 떄, {stu_id}, {class_id}, {}만으로는 {grade}를 결정짓지 못함
