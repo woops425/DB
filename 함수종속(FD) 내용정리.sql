@@ -40,3 +40,4 @@
 -- X -> Y가 유효할 때, X의 모든 진부분집합이 Y를 결정짓지 못할 때, 이 때 X -> Y를 full FD라고 한다.
 -- {stu_id, class_id} -> {grade}가 성립할 떄, {stu_id}, {class_id}, {}만으로는 {grade}를 결정짓지 못함
 -- 이 떄, 이 {stu_id, class_id} 만으로 유일하게 {grade}를 결정지을 수 있기 때문에, 이 FD를 full FD(완전함수종속)이라고 함.
+
