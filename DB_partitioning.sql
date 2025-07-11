@@ -6,7 +6,8 @@
 -- -> 테이블에 읽기 / 쓰기가 있을 때마다 인덱스에서 처리되는 시간도 조금씩 늘어남 : horizontal partitioning(hash_based)
 
 -- 어떤 특정한 애트리뷰트로 테이블을 partition 할 때, 이 partition의 기준이 되는 애트리뷰트를 'partition key' 라고 함
--- hash-based horizontal partitioning은 한 번 partition이 나눠져서 사용되면 이후에 partition을 추가하기 까다로움
+
+-- hash-based horizontal partitioning은 한 번 partition이 나눠져서 사용되면 이후에 partition을 추가하기 까다로움
 
 
 -- sharding : horizontal partitioning처럼 동작, 각 partititon이 독립된 DB 서버에 저장됨
