@@ -11,7 +11,8 @@
 -- 기본 값은 maximumPoolSize와 동일함(= pool size가 고정된다는 뜻) <- 트래픽이 밀려올 때 대응하기 용이함
 
 -- maximumPoolSize : pool이 가질 수 있는 최대 connection 수. idle과 active(in-use) connection을 합쳐서 최대의 수
--- maxLifetime : pool에서 connection의 최대 수명. maxLifetime을 넘기면 idle일 경우 pool에서 바로 제거, active인 경우 pool로 반환된 후 제거.-- pool로 반환이 안되면 maxLifetime 동작 안함. DB의 connection time limit보다 몇 초 짧게 설정해야함.
+-- maxLifetime : pool에서 connection의 최대 수명. maxLifetime을 넘기면 idle일 경우 pool에서 바로 제거, active인 경우 pool로 반환된 후 제거.
+-- pool로 반환이 안되면 maxLifetime 동작 안함. DB의 connection time limit보다 몇 초 짧게 설정해야함.
 -- connectionTimeout : pool에서 connection을 받기 위한 대기 시간. 사용자가 얼마나 기다리는지를 고려하여 적절한 timeout 시간을 설정하는 것이 중요함 
 
 
