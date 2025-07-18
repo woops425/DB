@@ -1,0 +1,23 @@
+-- relational database에서는 schema를 정의하고, 그 schema에 맞추어 데이터를 저장함.
+-- 그래서 새로운 column 등을 추가하여 확장하고 싶을 때, 유연한 확장이 부족함
+-- 복잡한 join은 read의 성능을 하락시키기도 함 
+-- 그래서 이때 relational database는 scale up(더 성능 좋은 컴퓨터로 바꿈)을 통한 database 성능을 향상시킴.
+-- 데이터 서버를 추가하는 방식인 scale-out 같은 방식도 있지만(ex.multi-master, sharding), 일반적으로 RDB는 scale-out에 유연한 DB는 아님 
+
+-- RDB는 ACID를 보장하려다 보니, DB 서버의 performance에 어느 정도 악 영향을 미침.
+-- 이런 RDB가 커버하지 못하는 단점들을 보완하여 나온 게 NoSQL
+
+-- NoSQL의 일반적 특징
+-- 1. flexible schema (ex. "student"라는 테이블을 만들고 싶을 때, db.createCollection("student") 이렇게만 적어주면 됨.
+-- RDB에서는 create table student( id INT PRIMARY KEY, name VARCHAR(20), ... )
+-- 값을 입력할 땐, db.student.insertOne({ name:"sangwoo"}) 이런 식으로 넣으면 됨 
+-- mongoDB같은 경우 JSON 형태로 값을 입력함. 아래는 예시
+-- db.student.insertOne({ name : "hope",
+-- address : {
+-- country : "korea",
+-- state : "Seoul", 
+-- city : "gangnam-gu",
+-- street : "blurblur"
+-- }, 
+-- certificate : ["AWS solution architect"]
+-- })
