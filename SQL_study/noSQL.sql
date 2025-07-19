@@ -21,3 +21,31 @@
 -- }, 
 -- certificate : ["AWS solution architect"]
 -- })
+
+-- db.student.find({name : "sangwoo"})
+
+-- 전체 데이터를 가져오고 싶은 경우
+-- db.student.find({})
+-- application 레벨에서 스키마 관리가 필요하다는 특징이 있음. 
+
+-- 2. NoSQL에서는 중복을 허용함(join을 회피하기 위함)
+-- application 레벨에서 중복된 데이터들이 모두 최신 데이터를 유지할 수 있도록 관리해야 함 
+
+-- 3. scale-out
+-- 서버 여러 대로 하나의 클러스터를 구성하여 사용 <- 중복을 허용하여 각각의 데이터를 저장하다보니, 여러 컬렉션을 조인할 필요 없이 한 컬렉션에 가서 데이터를 read 하면 됨
+
+-- 4. ACID의 일부를 포기하고 high-throughput, low-latency 추구 
+-- 하지만, 금융 시스템처럼 consistency가 중요한 환경에서는 사용하기가 조심스러움 
+
+-- Redis : in-memory key-value database, cache or, ...
+-- 메모리를 사용하는 키 밸류 형태로 데이터베이스로 사용하기도 하고, 캐시로도 사용하는 NoSQL.
+
+-- ex. redis> SET name sangwoo <<- key / value로 묶어서 name이 key, sangwoo가 value
+-- "OK"
+-- redis> GET name
+-- "sangwoo"
+
+-- Radis는 High Availability(고가용성) - replication, automatic failover 가능
+
+-- NoSQL 정보를 모아 볼 수 있는 유명 사이트
+-- https://hostingdata.co.uk/nosql-database/
